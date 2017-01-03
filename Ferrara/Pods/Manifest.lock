@@ -1,0 +1,16 @@
+PODS:
+  - Ferrara (0.0.1)
+
+DEPENDENCIES:
+  - Ferrara (from `..`)
+
+EXTERNAL SOURCES:
+  Ferrara:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  Ferrara: a129ec9673fa1fc92df3f42d1e9841b464c0bf1d
+
+PODFILE CHECKSUM: b0184a67977c453f431662031c1a66705a3c3e9e
+
+COCOAPODS: 1.2.0.beta.1

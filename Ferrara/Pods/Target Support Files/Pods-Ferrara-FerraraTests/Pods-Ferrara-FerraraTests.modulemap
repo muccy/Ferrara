@@ -1,0 +1,6 @@
+framework module Pods_Ferrara_FerraraTests {
+  umbrella header "Pods-Ferrara-FerraraTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
