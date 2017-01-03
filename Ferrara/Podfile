@@ -1,5 +1,0 @@
-target 'Ferrara' do
-  use_frameworks!
-  pod 'Ferrara', :path => '..'
-  target 'FerraraTests'
-end

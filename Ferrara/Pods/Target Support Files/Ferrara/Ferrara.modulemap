@@ -1,6 +1,0 @@
-framework module Ferrara {
-  umbrella header "Ferrara-umbrella.h"
-
-  export *
-  module * { export * }
-}
