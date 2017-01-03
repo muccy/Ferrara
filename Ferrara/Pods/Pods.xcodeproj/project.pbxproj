@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A0DC599CAE931477CDB3A7C731CA0E5 /* Ferrara-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA217899538787F662E2BC9CB4740BA /* Ferrara-dummy.m */; };
 		2DA0DA545F50A61FBB836DD2E57C162F /* Pods-Ferrara-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F75C6BC0394D548667268523ADED3 /* Pods-Ferrara-dummy.m */; };
-		48117F9A9F84A36E10FF579DDC3AEA0A /* Ferrara-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4AB793C409170DB85BE0A043521CBC /* Ferrara-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C8A038F84654F0C3AA259F42FFFC0A4 /* Ferrara-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E70AB671CF03F5C0FE324DA6EFBDB332 /* Ferrara-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49957277171876956F4E0E88948465CB /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8554041C2EE1C9CC79EDFADB36BE62 /* Diff.swift */; };
 		844E6C9157607A1A154278A6C79EA834 /* Pods-Ferrara-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD9459C888AEC17CED8F655E9FB43DF /* Pods-Ferrara-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A8188FF4B78131BEE1531A924DC65ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		A129EA2B6E467D73A7012A359DE2F041 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92064D89DD167080329A516D3556CDD9 /* Match.swift */; };
+		B2ED0D92EA888814E5549448E91CF53E /* Ferrara-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19962B80321528B635020E7BE0CF75 /* Ferrara-dummy.m */; };
+		B73B3C797CA8AF80877133F72717C24B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C36791EEE4D84770BC7D7993F67F0 /* Match.swift */; };
 		C29C71353788142082257A332CE6643B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		CEDC997838F90D10A11093EC6182D533 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		C7EB895561D29F0BD945B009558F471A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		DD0E9223B3BB116382B39AD4BF06EB52 /* Pods-Ferrara-FerraraTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3253535EB3FEB8BD862455D17E18BC34 /* Pods-Ferrara-FerraraTests-dummy.m */; };
 		F38415FAC5714C6C5BB6CE9E1FBDA35F /* Pods-Ferrara-FerraraTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2FC2D49EF76B8C1885D65547E554B03 /* Pods-Ferrara-FerraraTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -24,24 +25,22 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9E21967B96A072E1E2DDE97F98BB37AE;
+			remoteGlobalIDString = EF5B053B15218BA7EED0174492E3CC75;
 			remoteInfo = Ferrara;
 		};
 		ECD3A23D5272D2A4A2447A8CAA220D70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9E21967B96A072E1E2DDE97F98BB37AE;
+			remoteGlobalIDString = EF5B053B15218BA7EED0174492E3CC75;
 			remoteInfo = Ferrara;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B45349BDD13420CFAAB5CB8532C80D4 /* Ferrara-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-prefix.pch"; sourceTree = "<group>"; };
-		1CA217899538787F662E2BC9CB4740BA /* Ferrara-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ferrara-dummy.m"; sourceTree = "<group>"; };
-		1E22A280980F97E0EE88746288D700BF /* Ferrara.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ferrara.xcconfig; sourceTree = "<group>"; };
-		1E4AB793C409170DB85BE0A043521CBC /* Ferrara-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-umbrella.h"; sourceTree = "<group>"; };
+		1C19962B80321528B635020E7BE0CF75 /* Ferrara-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ferrara-dummy.m"; sourceTree = "<group>"; };
 		22C76AD5B3B5E1ECFE924FE6BAE3AA3A /* Pods-Ferrara-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Ferrara-acknowledgements.markdown"; sourceTree = "<group>"; };
+		24C7CF4F95E37B759ABCDA66CE495686 /* Ferrara.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ferrara.xcconfig; sourceTree = "<group>"; };
 		2C23A3C4FF038C63E1645BC98EE1D381 /* Pods-Ferrara-FerraraTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ferrara-FerraraTests-resources.sh"; sourceTree = "<group>"; };
 		3253535EB3FEB8BD862455D17E18BC34 /* Pods-Ferrara-FerraraTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Ferrara-FerraraTests-dummy.m"; sourceTree = "<group>"; };
 		3362000269708091F7AA7CBE614F4141 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,20 +53,23 @@
 		5D66329ED5A85C57E601E735C8EFC22B /* Pods-Ferrara-FerraraTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ferrara-FerraraTests-frameworks.sh"; sourceTree = "<group>"; };
 		705345AA0941ACC1910FFB722D8E3678 /* Pods-Ferrara-FerraraTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ferrara-FerraraTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		748DC98241D0C46A7447D81A4BB20522 /* Pods-Ferrara-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ferrara-resources.sh"; sourceTree = "<group>"; };
-		92064D89DD167080329A516D3556CDD9 /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		7B0BBD071CD8F9B9236842397BC13942 /* Ferrara.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Ferrara.modulemap; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		993AA382ACB8931637CE451D686EE8FC /* Pods_Ferrara.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Ferrara.framework; path = "Pods-Ferrara.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB3F1C14EFFCD2265D40330E287BBEC /* Pods-Ferrara.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ferrara.release.xcconfig"; sourceTree = "<group>"; };
 		A2FC2D49EF76B8C1885D65547E554B03 /* Pods-Ferrara-FerraraTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Ferrara-FerraraTests-umbrella.h"; sourceTree = "<group>"; };
 		B0628995255102DC4A6C29D5D2D68803 /* Pods-Ferrara.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ferrara.debug.xcconfig"; sourceTree = "<group>"; };
+		B07F824F83D9921CDE977FB82E2EF07C /* Ferrara-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-prefix.pch"; sourceTree = "<group>"; };
 		B42302D2B3EFFD663534D3A56E9E0D61 /* Pods-Ferrara-FerraraTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Ferrara-FerraraTests.modulemap"; sourceTree = "<group>"; };
 		B9194417C6DF48BC54118096FE3E2227 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAFCDF220F3B802332A962EA3DF40D0F /* Pods-Ferrara-FerraraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ferrara-FerraraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D79FCFAC6D5515DC96F0203DEE70058B /* Pods-Ferrara-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ferrara-acknowledgements.plist"; sourceTree = "<group>"; };
-		F215EBDD5733C429B1FD0EE337A2259F /* Ferrara.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Ferrara.modulemap; sourceTree = "<group>"; };
+		D97C36791EEE4D84770BC7D7993F67F0 /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		E70AB671CF03F5C0FE324DA6EFBDB332 /* Ferrara-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ferrara-umbrella.h"; sourceTree = "<group>"; };
+		E88F1DC4DEDE19CD10AAB008347F991E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBAFF3BBDF0AB8631FA12EF12C6839EC /* Pods-Ferrara-FerraraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ferrara-FerraraTests.release.xcconfig"; sourceTree = "<group>"; };
-		FC53C7FDB0CF2F88418F3AF760E9C978 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC8554041C2EE1C9CC79EDFADB36BE62 /* Diff.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,19 +81,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98B08BE3A6B107E0C73167BF6098FD86 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEDC997838F90D10A11093EC6182D533 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BB84C629DF24F482FB1605AB19720A60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C29C71353788142082257A332CE6643B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB3ABA4800747CFCBD6B7104D074229 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7EB895561D29F0BD945B009558F471A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +120,19 @@
 		1B63A407E2512787A130775E858BF9B1 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E793B6678BB340329BE1CFAB3980030 /* Ferrara */,
+				2A23061E2549F0CD37FC5E0994AC3780 /* Ferrara */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		2A23061E2549F0CD37FC5E0994AC3780 /* Ferrara */ = {
+			isa = PBXGroup;
+			children = (
+				D0DE1ACF19E610143DD66CC3698ECEB7 /* Source */,
+				D187BC46EA49BF2289E75B5703A822B0 /* Support Files */,
+			);
+			name = Ferrara;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		694C695C4D61812BF2E0855913F032FC /* Products */ = {
@@ -131,16 +143,6 @@
 				4F8C3983AD7C404E9CC26B3BFCAFB579 /* Pods_Ferrara_FerraraTests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6E793B6678BB340329BE1CFAB3980030 /* Ferrara */ = {
-			isa = PBXGroup;
-			children = (
-				BB9D89ADEC1F07B0C2CA4C16DF50780F /* Source */,
-				B62D0619130940D8A0DDBEA3A33FCF7F /* Support Files */,
-			);
-			name = Ferrara;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		6FAA17D6FBB00A144E47E151914DDF41 /* Pods-Ferrara-FerraraTests */ = {
@@ -189,35 +191,36 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		B62D0619130940D8A0DDBEA3A33FCF7F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F215EBDD5733C429B1FD0EE337A2259F /* Ferrara.modulemap */,
-				1E22A280980F97E0EE88746288D700BF /* Ferrara.xcconfig */,
-				1CA217899538787F662E2BC9CB4740BA /* Ferrara-dummy.m */,
-				0B45349BDD13420CFAAB5CB8532C80D4 /* Ferrara-prefix.pch */,
-				1E4AB793C409170DB85BE0A043521CBC /* Ferrara-umbrella.h */,
-				FC53C7FDB0CF2F88418F3AF760E9C978 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Ferrara/Pods/Target Support Files/Ferrara";
-			sourceTree = "<group>";
-		};
-		BB9D89ADEC1F07B0C2CA4C16DF50780F /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				92064D89DD167080329A516D3556CDD9 /* Match.swift */,
-			);
-			name = Source;
-			path = Source;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0DE1ACF19E610143DD66CC3698ECEB7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FC8554041C2EE1C9CC79EDFADB36BE62 /* Diff.swift */,
+				D97C36791EEE4D84770BC7D7993F67F0 /* Match.swift */,
+			);
+			name = Source;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D187BC46EA49BF2289E75B5703A822B0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B0BBD071CD8F9B9236842397BC13942 /* Ferrara.modulemap */,
+				24C7CF4F95E37B759ABCDA66CE495686 /* Ferrara.xcconfig */,
+				1C19962B80321528B635020E7BE0CF75 /* Ferrara-dummy.m */,
+				B07F824F83D9921CDE977FB82E2EF07C /* Ferrara-prefix.pch */,
+				E70AB671CF03F5C0FE324DA6EFBDB332 /* Ferrara-umbrella.h */,
+				E88F1DC4DEDE19CD10AAB008347F991E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Ferrara/Pods/Target Support Files/Ferrara";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,11 +242,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6BAA330BD56BEF6280989E627E37C40A /* Headers */ = {
+		C98111224B3401CE26F15C957E216C74 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48117F9A9F84A36E10FF579DDC3AEA0A /* Ferrara-umbrella.h in Headers */,
+				3C8A038F84654F0C3AA259F42FFFC0A4 /* Ferrara-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +289,13 @@
 			productReference = 993AA382ACB8931637CE451D686EE8FC /* Pods_Ferrara.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9E21967B96A072E1E2DDE97F98BB37AE /* Ferrara */ = {
+		EF5B053B15218BA7EED0174492E3CC75 /* Ferrara */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93A50D382EFCC9AFF79FFC0726C3551E /* Build configuration list for PBXNativeTarget "Ferrara" */;
+			buildConfigurationList = F89A9B65738DC1C3A13AB6D5E1379EFA /* Build configuration list for PBXNativeTarget "Ferrara" */;
 			buildPhases = (
-				729363C9D428BD7C7D14BDDCD619B6AB /* Sources */,
-				98B08BE3A6B107E0C73167BF6098FD86 /* Frameworks */,
-				6BAA330BD56BEF6280989E627E37C40A /* Headers */,
+				5E50E01FAF0003C9D06A65355302508E /* Sources */,
+				EDB3ABA4800747CFCBD6B7104D074229 /* Frameworks */,
+				C98111224B3401CE26F15C957E216C74 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -324,7 +327,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E21967B96A072E1E2DDE97F98BB37AE /* Ferrara */,
+				EF5B053B15218BA7EED0174492E3CC75 /* Ferrara */,
 				8F790E019E09CB3AA39BCE2256FEBAF8 /* Pods-Ferrara */,
 				4B11329725F5A13221DC6763E007382D /* Pods-Ferrara-FerraraTests */,
 			);
@@ -340,12 +343,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		729363C9D428BD7C7D14BDDCD619B6AB /* Sources */ = {
+		5E50E01FAF0003C9D06A65355302508E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0DC599CAE931477CDB3A7C731CA0E5 /* Ferrara-dummy.m in Sources */,
-				A129EA2B6E467D73A7012A359DE2F041 /* Match.swift in Sources */,
+				49957277171876956F4E0E88948465CB /* Diff.swift in Sources */,
+				B2ED0D92EA888814E5549448E91CF53E /* Ferrara-dummy.m in Sources */,
+				B73B3C797CA8AF80877133F72717C24B /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,51 +367,18 @@
 		7A55CB3D8E07F7266F03D83080E62714 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Ferrara;
-			target = 9E21967B96A072E1E2DDE97F98BB37AE /* Ferrara */;
+			target = EF5B053B15218BA7EED0174492E3CC75 /* Ferrara */;
 			targetProxy = ECD3A23D5272D2A4A2447A8CAA220D70 /* PBXContainerItemProxy */;
 		};
 		D17F9F8A069C3850CC6AC4E9C532C524 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Ferrara;
-			target = 9E21967B96A072E1E2DDE97F98BB37AE /* Ferrara */;
+			target = EF5B053B15218BA7EED0174492E3CC75 /* Ferrara */;
 			targetProxy = 7650E46390CD60E103C3629BAA80557C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5F22CF0F9B94357761CD50640813B934 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E22A280980F97E0EE88746288D700BF /* Ferrara.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Ferrara/Ferrara-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Ferrara/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Ferrara/Ferrara.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Ferrara;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -445,6 +416,71 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A8F658A51D0CB77D958704962AA6508 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24C7CF4F95E37B759ABCDA66CE495686 /* Ferrara.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Ferrara/Ferrara-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Ferrara/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Ferrara/Ferrara.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Ferrara;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C338E3C4A197031EA925FCD634AD459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24C7CF4F95E37B759ABCDA66CE495686 /* Ferrara.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Ferrara/Ferrara-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Ferrara/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Ferrara/Ferrara.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Ferrara;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -555,38 +591,6 @@
 			};
 			name = Release;
 		};
-		95E1AF58B79F8DCA151C15262BB944FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E22A280980F97E0EE88746288D700BF /* Ferrara.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Ferrara/Ferrara-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Ferrara/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Ferrara/Ferrara.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Ferrara;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		DA19778749D5F05D391E773424D61C9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CB3F1C14EFFCD2265D40330E287BBEC /* Pods-Ferrara.release.xcconfig */;
@@ -678,15 +682,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93A50D382EFCC9AFF79FFC0726C3551E /* Build configuration list for PBXNativeTarget "Ferrara" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F22CF0F9B94357761CD50640813B934 /* Debug */,
-				95E1AF58B79F8DCA151C15262BB944FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AF13A27DCCDFB07BD014FADB96792874 /* Build configuration list for PBXNativeTarget "Pods-Ferrara-FerraraTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -701,6 +696,15 @@
 			buildConfigurations = (
 				7213805E3E6532BA34EFE63F4DFF6B22 /* Debug */,
 				DA19778749D5F05D391E773424D61C9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F89A9B65738DC1C3A13AB6D5E1379EFA /* Build configuration list for PBXNativeTarget "Ferrara" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A8F658A51D0CB77D958704962AA6508 /* Debug */,
+				6C338E3C4A197031EA925FCD634AD459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

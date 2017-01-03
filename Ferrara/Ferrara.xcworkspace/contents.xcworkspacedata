@@ -10,6 +10,9 @@
       <FileRef
          location = "group:Match.swift">
       </FileRef>
+      <FileRef
+         location = "group:Diff.swift">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Ferrara.xcodeproj">
