@@ -7,6 +7,9 @@
    <Group
       location = "group:../Source"
       name = "Source">
+      <FileRef
+         location = "group:Match.swift">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Ferrara.xcodeproj">
