@@ -12,6 +12,7 @@
 		063ECD0E1E1BB5B10041B325 /* Ferrara.h in Headers */ = {isa = PBXBuildFile; fileRef = 063ECD001E1BB5B00041B325 /* Ferrara.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		063ECD1A1E1C208B0041B325 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ECD181E1C208B0041B325 /* Diff.swift */; };
 		063ECD1B1E1C208B0041B325 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ECD191E1C208B0041B325 /* Match.swift */; };
+		063ECD1D1E1D58200041B325 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063ECD1C1E1D58200041B325 /* Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		063ECD0D1E1BB5B10041B325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		063ECD181E1C208B0041B325 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		063ECD191E1C208B0041B325 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		063ECD1C1E1D58200041B325 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				063ECD181E1C208B0041B325 /* Diff.swift */,
 				063ECD191E1C208B0041B325 /* Match.swift */,
+				063ECD1C1E1D58200041B325 /* Identifiable.swift */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063ECD1D1E1D58200041B325 /* Identifiable.swift in Sources */,
 				063ECD1A1E1C208B0041B325 /* Diff.swift in Sources */,
 				063ECD1B1E1C208B0041B325 /* Match.swift in Sources */,
 			);

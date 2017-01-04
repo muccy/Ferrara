@@ -16,12 +16,20 @@ public struct DiffMatch {
         self.to = to
     }
     
+    /// Initialize a match without change
+    ///
+    /// - Parameters:
+    ///   - from: Source index
+    ///   - to: Destination index
     public init(_ from: Index, _ to: Index) {
         self.changed = false
         self.from = from
         self.to = to
     }
     
+    /// Initialize a match without change, which starts and finishes at same index
+    ///
+    /// - Parameter fromAndTo: Source and destination index
     public init(_ fromAndTo: Index) {
         self.changed = false
         self.from = fromAndTo
@@ -55,7 +63,7 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
     public let deleted: IndexSet
     /// Matches between source and destination
     public let matches: Set<DiffMatch>
-    /// Matches which represent a movement
+    /// Matches which represent movements
     public let movements: Set<DiffMatch>
     
     public init(from source: T, to destination: T) {

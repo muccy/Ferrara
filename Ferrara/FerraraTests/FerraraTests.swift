@@ -3,6 +3,15 @@ import XCTest
 
 extension Int: Matchable {} // Use Equatable standard implementation of match(with:)
 
+private struct Box<T: Equatable>: Identifiable, Matchable, Equatable {
+    let identifier: String
+    let value: T
+    
+    static func ==(lhs: Box<T>, rhs: Box<T>) -> Bool {
+        return lhs.identifier == rhs.identifier && lhs.value == rhs.value
+    }
+}
+
 class FerraraTests: XCTestCase {
     private struct PrefixHolder: Matchable {
         let string: String
@@ -255,5 +264,17 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.deleted == IndexSet(3...3))
         XCTAssert(diff.movements == Set([DiffMatch(1, 2)]))
         XCTAssert(diff.matches == Set([DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(4, 4), DiffMatch(changed: true, from: 0, to: 0), DiffMatch(changed: true, from: 5, to: 6)]))
+    }
+
+    func testIdentifiable() {
+        let a = Box(identifier: "id0", value: "A")
+        let b = Box(identifier: "id0", value: "B")
+        XCTAssert(a.match(with: b) == .change)
+        
+        let c = Box(identifier: "id0", value: "A")
+        XCTAssert(a.match(with: c) == .equal)
+        
+        let d = Box(identifier: "id1", value: "A")
+        XCTAssert(a.match(with: d) == .none)
     }
 }

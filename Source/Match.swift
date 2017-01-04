@@ -1,6 +1,10 @@
-
 import Foundation
 
+/// How two objects match
+///
+/// - none: No match
+/// - change: Partial match (same object has changed)
+/// - equal: Complete match
 public enum Match: String {
     case none = "❌"
     case change = "🔄"
@@ -23,6 +27,7 @@ extension Matchable where Self: Equatable {
     }
 }
 
+/// Wrapper for any matchable object
 public struct AnyMatchable: Matchable {
     // https://gist.github.com/JadenGeller/f0d05a4699ddd477a2c1
     private let value: Any
