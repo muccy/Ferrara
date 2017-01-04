@@ -53,6 +53,18 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.matches == Set([DiffMatch(0)]))
     }
     
+    func testMassInsertion() {
+        let a = [Int]()
+        let b = [0, 1, 2]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted == IndexSet(0...2))
+        XCTAssert(diff.deleted.count == 0)
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches.count == 0)
+    }
+    
     func testDeletion() {
         let a = [0, 1, 2]
         let b = [0]
