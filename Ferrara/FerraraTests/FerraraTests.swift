@@ -11,6 +11,10 @@ class FerraraTests: XCTestCase {
             self.string = string
         }
         
+        static func multiple(with strings: [String]) -> [PrefixHolder] {
+            return strings.map { PrefixHolder.init($0) }
+        }
+        
         func match(with object: PrefixHolder) -> Match {
             if (string == object.string) {
                 return .equal
@@ -62,8 +66,8 @@ class FerraraTests: XCTestCase {
     }
     
     func testChanges() {
-        let a = [PrefixHolder("a"), PrefixHolder("b"), PrefixHolder("c")]
-        let b = [PrefixHolder("a"), PrefixHolder("b2"), PrefixHolder("c2")]
+        let a = PrefixHolder.multiple(with: ["a", "b", "c"])
+        let b = PrefixHolder.multiple(with: ["a", "b2", "c2"])
         
         let diff = Diff(from: a, to: b)
         
@@ -170,8 +174,8 @@ class FerraraTests: XCTestCase {
     }
     
     func testChangeMovement() {
-        let a = [PrefixHolder("a"), PrefixHolder("b"), PrefixHolder("c"), PrefixHolder("d")]
-        let b = [PrefixHolder("a"), PrefixHolder("c1"), PrefixHolder("b1"), PrefixHolder("d1")]
+        let a = PrefixHolder.multiple(with: ["a", "b", "c", "d"])
+        let b = PrefixHolder.multiple(with: ["a", "c1", "b1", "d1"])
         
         let diff = Diff(from: a, to: b)
         
@@ -182,7 +186,7 @@ class FerraraTests: XCTestCase {
     }
     
     func testInsertionDeletionChange() {
-        let a = [PrefixHolder("a"), PrefixHolder("b"), PrefixHolder("c")]
+        let a = PrefixHolder.multiple(with: ["a", "b", "c"])
         let b = [PrefixHolder("c1"), PrefixHolder("d")]
         
         let diff = Diff(from: a, to: b)
@@ -203,5 +207,17 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.deleted == IndexSet(3...3))
         XCTAssert(diff.movements == Set([DiffMatch(1, 2)]))
         XCTAssert(diff.matches == Set([DiffMatch(0, 0), DiffMatch(1, 2), DiffMatch(2, 1)]))
+    }
+    
+    func testDeletionChangeMovement() {
+        let a = PrefixHolder.multiple(with: ["a", "b", "c", "d", "e", "f"])
+        let b = PrefixHolder.multiple(with: ["a1", "c", "b", "f1", "e"])
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted == IndexSet(3...3))
+        XCTAssert(diff.movements == Set([DiffMatch(1, 2), DiffMatch(changed: true, from: 5, to: 3)]))
+        XCTAssert(diff.matches == Set([DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(4, 4), DiffMatch(changed: true, from: 0, to: 0), DiffMatch(changed: true, from: 5, to: 3)]))
     }
 }
