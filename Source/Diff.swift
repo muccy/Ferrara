@@ -29,7 +29,7 @@ extension DiffMatch: CustomDebugStringConvertible {
 }
 
 /// Diff between two collections
-public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDistance == DiffMatch.Index
+public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index == DiffMatch.Index, T.IndexDistance == DiffMatch.Index
 {
     /// Inserted indexes in destination
     public let inserted: IndexSet
@@ -64,15 +64,13 @@ public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDista
         
         // Scan match from source to destination
         for (sourceIndex, sourceElement) in source.enumerated() {
-            if let sourceElement = sourceElement as? Matchable {
-                if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination) {
-                    availableDestinationIndexes.remove(match.to)
-                    matches.insert(match)
-                }
-                else {
-                    deleted.insert(sourceIndex)
-                }
-            } // if sourceElement is Matchable
+            if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination) {
+                availableDestinationIndexes.remove(match.to)
+                matches.insert(match)
+            }
+            else {
+                deleted.insert(sourceIndex)
+            }
         } // for source
         
         // Every index without a match from source is an inserted index
@@ -86,10 +84,13 @@ public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDista
         self.matches = matches
     } // init
 
-    private static func match(for element: Matchable, at index: T.Index, in destination: T) -> DiffMatch?
+    private static func match<M: Matchable>(for element: M, at index: T.Index, in destination: T) -> DiffMatch?
     {
+        let matchableElement = AnyMatchable(element)
+        
         for (destinationIndex, destinationElement) in destination.enumerated() {
-            switch element.match(with: destinationElement) {
+            switch matchableElement.match(with: AnyMatchable(destinationElement))
+            {
             case .equal:
                 return DiffMatch(changed: false, from: index, to: destinationIndex)
             case .change:
