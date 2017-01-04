@@ -128,4 +128,16 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.movements.count == 0)
         XCTAssert(diff.matches.count == 0)
     }
+    
+    func testInsertionChange() {
+        let a = [PrefixHolder("a")]
+        let b = [PrefixHolder("a1"), PrefixHolder("b")]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted == IndexSet(1...1))
+        XCTAssert(diff.deleted.count == 0)
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches == Set([DiffMatch(changed: true, from: 0, to: 0)]))
+    }
 }
