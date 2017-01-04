@@ -220,4 +220,16 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.movements == Set([DiffMatch(1, 2), DiffMatch(changed: true, from: 5, to: 3)]))
         XCTAssert(diff.matches == Set([DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(4, 4), DiffMatch(changed: true, from: 0, to: 0), DiffMatch(changed: true, from: 5, to: 3)]))
     }
+    
+    func testInsertionDeletionChangeMovement() {
+        let a = PrefixHolder.multiple(with: ["a", "b", "c", "d", "e", "f"])
+        let b = PrefixHolder.multiple(with: ["a1", "c", "b", "g", "e", "h", "f1"])
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted == IndexSet([3, 5]))
+        XCTAssert(diff.deleted == IndexSet(3...3))
+        XCTAssert(diff.movements == Set([DiffMatch(1, 2)]))
+        XCTAssert(diff.matches == Set([DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(4, 4), DiffMatch(changed: true, from: 0, to: 0), DiffMatch(changed: true, from: 5, to: 6)]))
+    }
 }
