@@ -164,4 +164,16 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.movements.count == 0)
         XCTAssert(diff.matches == Set([DiffMatch(changed: true, from: 1, to: 0)]))
     }
+    
+    func testDeletionMovement() {
+        let a = [0, 1, 2, 3]
+        let b = [3, 2]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted == IndexSet(0...1))
+        XCTAssert(diff.movements == Set([DiffMatch(2, 1)]))
+        XCTAssert(diff.matches == Set([DiffMatch(2, 1), DiffMatch(3, 0)]))
+    }
 }
