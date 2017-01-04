@@ -12,6 +12,27 @@ import XCTest
 extension Int: Matchable {} // Use Equatable standard implementation of match(with:)
 
 class FerraraTests: XCTestCase {
+    private struct PrefixHolder: Matchable {
+        let string: String
+        
+        init(_ string: String) {
+            self.string = string
+        }
+        
+        func match(with object: PrefixHolder) -> Match {
+            if (string == object.string) {
+                return .equal
+            }
+            else if (string.commonPrefix(with: object.string).characters.count > 0)
+            {
+                return .change
+            }
+            else {
+                return .none
+            }
+        }
+    }
+    
     func testSameSourceAndDestination() {
         let a = [0, 1, 2]
         let b = [0, 1 ,2]
@@ -46,5 +67,17 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.deleted == IndexSet(integersIn: 1...2))
         XCTAssert(diff.movements.count == 0)
         XCTAssert(diff.matches == Set([DiffMatch(0)]))
+    }
+    
+    func testChanges() {
+        let a = [PrefixHolder("a"), PrefixHolder("b"), PrefixHolder("c")]
+        let b = [PrefixHolder("a"), PrefixHolder("b2"), PrefixHolder("c2")]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted.count == 0)
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches == Set([DiffMatch(0), DiffMatch(changed: true, from: 1, to: 1), DiffMatch(changed: true, from: 2, to: 2)]))
     }
 }
