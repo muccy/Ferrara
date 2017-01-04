@@ -77,14 +77,14 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
         
         // Make normal calculations
         var availableDestinationIndexes = IndexSet(integersIn: 0..<destination.count)
-        var matches = Set<DiffMatch>()
+        var matches = [DiffMatch]()
         var deleted = IndexSet()
         
         // Scan match from source to destination
         for (sourceIndex, sourceElement) in source.enumerated() {
             if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination) {
                 availableDestinationIndexes.remove(match.to)
-                matches.insert(match)
+                matches.append(match)
             }
             else {
                 deleted.insert(sourceIndex)
@@ -99,7 +99,7 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
         self.movements = Diff.movements(in: matches, with: inserted, deleted)
         
         self.deleted = deleted
-        self.matches = matches
+        self.matches = Set(matches)
     } // init
 
     private static func match<M: Matchable>(for element: M, at index: T.Index, in destination: T) -> DiffMatch?
@@ -121,30 +121,30 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
         return nil
     }
 
-    private static func movements(in matches: Set<DiffMatch>, with inserted: IndexSet, _ deleted: IndexSet) -> Set<DiffMatch>
+    private static func movements(in matches: [DiffMatch], with inserted: IndexSet, _ deleted: IndexSet) -> Set<DiffMatch>
     {
-        var movements = Set<DiffMatch>()
+        var movements = [DiffMatch]()
         
         for match in matches {
             if match.from != match.to {
                 let offset = sourceOffset(for: match, in: movements, with: inserted, deleted)
                 if match.from + offset != match.to {
-                    movements.insert(match)
+                    movements.append(match)
                 }
             } // if
         } // for
         
-        return movements
+        return Set(movements)
     }
     
-    private static func sourceOffset(for movement: DiffMatch, in movements: Set<DiffMatch>, with inserted: IndexSet, _ deleted: IndexSet) -> Int
+    private static func sourceOffset(for movement: DiffMatch, in movements: [DiffMatch], with inserted: IndexSet, _ deleted: IndexSet) -> Int
     {
         let insertionsBefore = inserted.count(in: 0..<movement.to)
         let deletionsBefore = deleted.count(in: 0..<movement.from)
         
         var offset = insertionsBefore - deletionsBefore
         for anotherMovement in movements {
-            if movement != anotherMovement, anotherMovement.from < movement.from, anotherMovement.to > movement.to
+            if movement != anotherMovement && anotherMovement.from < movement.from && anotherMovement.to > movement.to
             {
                 offset = offset - 1 // A preceding item is now after
             } // if
