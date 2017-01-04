@@ -77,6 +77,18 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.matches == Set([DiffMatch(0)]))
     }
     
+    func testMassDeletion() {
+        let a = [0, 1, 2]
+        let b = [Int]()
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted == IndexSet(0...2))
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches.count == 0)
+    }
+    
     func testChanges() {
         let a = PrefixHolder.multiple(with: ["a", "b", "c"])
         let b = PrefixHolder.multiple(with: ["a", "b2", "c2"])
