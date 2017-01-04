@@ -10,12 +10,5 @@ import XCTest
 @testable import Ferrara
 
 class FerraraTests: XCTestCase {
-    func testInit() {
-        let source = ["A"]
-        let destination = ["B"]
-        let diff = Diff(from: source, to: destination)
-        
-        XCTAssert(diff.source == source)
-        XCTAssert(diff.destination == destination)
-    }
+    
 }
