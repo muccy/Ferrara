@@ -1,62 +1,77 @@
 import Foundation
 
-public struct Diff<T: Collection> where T.Index == IndexSet.Element, T.IndexDistance == IndexSet.Element
-{
-    public let source: T
-    public let destination: T
+/// A match between to collection
+public struct DiffMatch {
+    public typealias Index = IndexSet.Element
+    /// Matching objects are not equal, but they have changed (see Matchable protocol)
+    let changed: Bool
+    /// Source index
+    let from: Index
+    /// Destination index
+    let to: Index
+}
+
+extension DiffMatch: Hashable {
+    public var hashValue: Int {
+        return 1575 ^ changed.hashValue ^ from.hashValue ^ to.hashValue
+    }
     
+    public static func ==(lhs: DiffMatch, rhs: DiffMatch) -> Bool {
+        return lhs.changed == rhs.changed && lhs.from == rhs.from && lhs.to == rhs.to
+    }
+}
+
+extension DiffMatch: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        let symbol = changed ? "🔄" : "✅"
+        return "\(symbol) \(from) -> \(to)"
+    }
+}
+
+/// Diff between two collections
+public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDistance == DiffMatch.Index
+{
+    /// Inserted indexes in destination
     public let inserted: IndexSet
+    /// Deleted indexes in source
     public let deleted: IndexSet
-    public let movements: Set<Match>
-    public let equalMatches: Set<Match>
-    public let changes: Set<Match>
+    /// Matches between source and destination
+    public let matches: Set<DiffMatch>
+    /// Matches which represent a movement
+    public let movements: Set<DiffMatch>
     
     public init(from source: T, to destination: T) {
-        self.source = source
-        self.destination = destination
-        
         if source.count == 0 && destination.count > 0 { // Everything added
             self.inserted = IndexSet(integersIn: 0..<destination.count)
             self.deleted = IndexSet()
-            self.movements = Set<Match>()
-            self.equalMatches = Set<Match>()
-            self.changes = Set<Match>()
+            self.matches = Set<DiffMatch>()
+            self.movements = Set<DiffMatch>()
             return
         }
         
         if source.count > 0 && destination.count == 0 { // Everything deleted
             self.inserted = IndexSet()
             self.deleted = IndexSet(integersIn: 0..<source.count)
-            self.movements = Set<Match>()
-            self.equalMatches = Set<Match>()
-            self.changes = Set<Match>()
+            self.matches = Set<DiffMatch>()
+            self.movements = Set<DiffMatch>()
             return
         }
         
         // Make normal calculations
         var availableDestinationIndexes = IndexSet(integersIn: 0..<destination.count)
-        var positiveMatches = Set<Match>()
-        var equalMatches = Set<Match>()
-        var changes = Set<Match>()
+        var matches = Set<DiffMatch>()
         var deleted = IndexSet()
         
         // Scan match from source to destination
         for (sourceIndex, sourceElement) in source.enumerated() {
             if let sourceElement = sourceElement as? Matchable {
-                let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination)
-                
-                switch match {
-                case .change(_, let destination):
-                    availableDestinationIndexes.remove(destination)
-                    changes.insert(match)
-                    positiveMatches.insert(match)
-                case .equal(_, let destination):
-                    availableDestinationIndexes.remove(destination)
-                    equalMatches.insert(match)
-                    positiveMatches.insert(match)
-                case .none:
+                if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination) {
+                    availableDestinationIndexes.remove(match.to)
+                    matches.insert(match)
+                }
+                else {
                     deleted.insert(sourceIndex)
-                } // switch
+                }
             } // if sourceElement is Matchable
         } // for source
         
@@ -65,57 +80,52 @@ public struct Diff<T: Collection> where T.Index == IndexSet.Element, T.IndexDist
         availableDestinationIndexes.removeAll()
         
         // Find movements inside positive matches
-        self.movements = Diff.movements(in: positiveMatches, with: inserted, deleted)
+        self.movements = Diff.movements(in: matches, with: inserted, deleted)
         
         self.deleted = deleted
-        self.equalMatches = equalMatches
-        self.changes = changes
+        self.matches = matches
     } // init
-    
-    private static func match(for element: Matchable, at index: T.Index, in destination: T) -> Match
+
+    private static func match(for element: Matchable, at index: T.Index, in destination: T) -> DiffMatch?
     {
-        for destinationElement in destination {
-            let match = element.match(with: destinationElement)
-            
-            switch match {
-            case .equal, .change:
-                return match
+        for (destinationIndex, destinationElement) in destination.enumerated() {
+            switch element.match(with: destinationElement) {
+            case .equal:
+                return DiffMatch(changed: false, from: index, to: destinationIndex)
+            case .change:
+                return DiffMatch(changed: true, from: index, to: destinationIndex)
             case .none:
                 break
             } // switch
         } // for destination
         
-        return Match.none(source: index)
+        return nil
     }
 
-    private static func movements(in matches: Set<Match>, with inserted: IndexSet, _ deleted: IndexSet) -> Set<Match>
+    private static func movements(in matches: Set<DiffMatch>, with inserted: IndexSet, _ deleted: IndexSet) -> Set<DiffMatch>
     {
-        var movements = Set<Match>()
+        var movements = Set<DiffMatch>()
         
         for match in matches {
-            switch match {
-            case .equal(let source, let destination) where source != destination,
-                 .change(let source, let destination) where source != destination:
+            if match.from != match.to {
                 let offset = sourceOffset(for: match, in: movements, with: inserted, deleted)
-                if source + offset != destination {
+                if match.from + offset != match.to {
                     movements.insert(match)
                 }
-            default:
-                break // Do nothing
-            } // switch
+            } // if
         } // for
         
         return movements
     }
     
-    private static func sourceOffset(for movement: Match, in movements: Set<Match>, with inserted: IndexSet, _ deleted: IndexSet) -> Int
+    private static func sourceOffset(for movement: DiffMatch, in movements: Set<DiffMatch>, with inserted: IndexSet, _ deleted: IndexSet) -> Int
     {
-        let insertionsBefore = inserted.count(in: 0..<movement.destination!)
-        let deletionsBefore = deleted.count(in: 0..<movement.source)
+        let insertionsBefore = inserted.count(in: 0..<movement.to)
+        let deletionsBefore = deleted.count(in: 0..<movement.from)
         
         var offset = insertionsBefore - deletionsBefore
         for anotherMovement in movements {
-            if movement != anotherMovement, anotherMovement.source < movement.source, anotherMovement.destination! > movement.destination!
+            if movement != anotherMovement, anotherMovement.from < movement.from, anotherMovement.to > movement.to
             {
                 offset = offset - 1 // A preceding item is now after
             } // if
@@ -125,5 +135,18 @@ public struct Diff<T: Collection> where T.Index == IndexSet.Element, T.IndexDist
         } // for
         
         return offset
+    }
+}
+
+extension Diff {
+    /// Utility method to pack diff with source and destination collections
+    ///
+    /// - Parameters:
+    ///   - source: Source collection
+    ///   - destination: Destination collection
+    /// - Returns: A tuple with source, destination and computed diff
+    public static func between(_ source: T, _ destination: T) -> (source: T, destination: T, diff: Diff<T>)
+    {
+        return (source: source, destination: destination, diff: Diff(from: source, to: destination))
     }
 }
