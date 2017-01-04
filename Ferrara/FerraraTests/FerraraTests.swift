@@ -51,7 +51,7 @@ class FerraraTests: XCTestCase {
         
         let diff = Diff(from: a, to: b)
         
-        XCTAssert(diff.inserted == IndexSet(integersIn: 1...2))
+        XCTAssert(diff.inserted == IndexSet(1...2))
         XCTAssert(diff.deleted.count == 0)
         XCTAssert(diff.movements.count == 0)
         XCTAssert(diff.matches == Set([DiffMatch(0)]))
@@ -64,7 +64,7 @@ class FerraraTests: XCTestCase {
         let diff = Diff(from: a, to: b)
         
         XCTAssert(diff.inserted.count == 0)
-        XCTAssert(diff.deleted == IndexSet(integersIn: 1...2))
+        XCTAssert(diff.deleted == IndexSet(1...2))
         XCTAssert(diff.movements.count == 0)
         XCTAssert(diff.matches == Set([DiffMatch(0)]))
     }
@@ -115,5 +115,17 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.deleted.count == 0)
         XCTAssert(diff.movements == Set([DiffMatch(0, 1)]))
         XCTAssert(diff.matches == Set([DiffMatch(0, 1), DiffMatch(1, 0), DiffMatch(2, 2)]))
+    }
+    
+    func testInsertionDeletion() {
+        let a = [0]
+        let b = [1, 2]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted == IndexSet(0...1))
+        XCTAssert(diff.deleted == IndexSet(0...0))
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches.count == 0)
     }
 }
