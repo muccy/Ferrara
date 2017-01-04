@@ -9,6 +9,24 @@ public struct DiffMatch {
     let from: Index
     /// Destination index
     let to: Index
+    
+    public init(changed: Bool, from: Index, to: Index) {
+        self.changed = false
+        self.from = from
+        self.to = to
+    }
+    
+    public init(_ from: Index, _ to: Index) {
+        self.changed = false
+        self.from = from
+        self.to = to
+    }
+    
+    public init(_ fromAndTo: Index) {
+        self.changed = false
+        self.from = fromAndTo
+        self.to = fromAndTo
+    }
 }
 
 extension DiffMatch: Hashable {

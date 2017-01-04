@@ -9,6 +9,18 @@
 import XCTest
 @testable import Ferrara
 
+extension Int: Matchable {} // Use Equatable standard implementation of match(with:)
+
 class FerraraTests: XCTestCase {
-    
+    func testSameSourceAndDestination() {
+        let a = [0, 1, 2]
+        let b = [0, 1 ,2]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted.count == 0)
+        XCTAssert(diff.movements.count == 0)
+        XCTAssert(diff.matches == Set([DiffMatch(0), DiffMatch(1), DiffMatch(2)]))
+    }
 }
