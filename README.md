@@ -116,3 +116,9 @@ Marco Muccinelli, muccymac@gmail.com
 ## License
 
 `Ferrara` is available under the MIT license. See the LICENSE file for more info.
+
+## About the name
+
+![A castle near Ferrara](http://i.imgur.com/6NiEoLc.jpg)
+
+Ferrara is a city and comune in Emilia-Romagna, northern Italy, capital city of the Province of Ferrara. For its beauty and cultural importance it has been qualified by UNESCO as a World Heritage Site. It is the historic location of River Po delta. The river flows through many important Italian cities and, near the end of its course, it creates a wide delta. So, River Po delta inspired the name :) 
