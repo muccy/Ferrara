@@ -1,11 +1,3 @@
-//
-//  FerraraTests.swift
-//  FerraraTests
-//
-//  Created by Marco on 03/01/17.
-//  Copyright © 2017 MeLive. All rights reserved.
-//
-
 import XCTest
 @testable import Ferrara
 
@@ -175,5 +167,17 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.deleted == IndexSet(0...1))
         XCTAssert(diff.movements == Set([DiffMatch(2, 1)]))
         XCTAssert(diff.matches == Set([DiffMatch(2, 1), DiffMatch(3, 0)]))
+    }
+    
+    func testChangeMovement() {
+        let a = [PrefixHolder("a"), PrefixHolder("b"), PrefixHolder("c"), PrefixHolder("d")]
+        let b = [PrefixHolder("a"), PrefixHolder("c1"), PrefixHolder("b1"), PrefixHolder("d1")]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssert(diff.inserted.count == 0)
+        XCTAssert(diff.deleted.count == 0)
+        XCTAssert(diff.movements == Set([DiffMatch(changed: true, from: 1, to: 2)]))
+        XCTAssert(diff.matches == Set([DiffMatch(0), DiffMatch(changed: true, from: 1, to: 2), DiffMatch(changed: true, from: 2, to: 1), DiffMatch(changed: true, from: 3, to: 3)]))
     }
 }
