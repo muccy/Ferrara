@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Ferrara"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Spot differences between two collections"
   s.description  = <<-DESC
                     A framework which takes two collections and calculates differences between them. 
@@ -13,6 +13,4 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/muccy/#{s.name}.git", :tag => s.version }
   s.source_files  = "Source", "Source/**/*.swift"
-
-
 end
