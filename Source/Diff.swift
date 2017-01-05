@@ -1,7 +1,7 @@
 import Foundation
 
 /// A match between to collection
-public struct DiffMatch {
+public struct DiffMatch: Hashable, CustomDebugStringConvertible {
     public typealias Index = IndexSet.Element
     /// Matching objects are not equal, but they have changed (see Matchable protocol)
     let changed: Bool
@@ -35,9 +35,7 @@ public struct DiffMatch {
         self.from = fromAndTo
         self.to = fromAndTo
     }
-}
-
-extension DiffMatch: Hashable {
+    
     public var hashValue: Int {
         return 1575 ^ changed.hashValue ^ from.hashValue ^ to.hashValue
     }
@@ -45,9 +43,7 @@ extension DiffMatch: Hashable {
     public static func ==(lhs: DiffMatch, rhs: DiffMatch) -> Bool {
         return lhs.changed == rhs.changed && lhs.from == rhs.from && lhs.to == rhs.to
     }
-}
-
-extension DiffMatch: CustomDebugStringConvertible {
+    
     public var debugDescription: String {
         let symbol = changed ? "🔄" : "✅"
         return "\(symbol) \(from) -> \(to)"
@@ -165,7 +161,7 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
     }
 }
 
-extension Diff {
+public extension Diff {
     /// Utility method to pack diff with source and destination collections
     ///
     /// - Parameters:
