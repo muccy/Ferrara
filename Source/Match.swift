@@ -5,23 +5,22 @@ import Foundation
 /// - none: No match
 /// - change: Partial match (same object has changed)
 /// - equal: Complete match
-public enum Match: String {
+public enum Match: String, CustomDebugStringConvertible {
     case none = "❌"
     case change = "🔄"
     case equal = "✅"
-}
-
-extension Match: CustomDebugStringConvertible {
+    
     public var debugDescription: String {
         return self.rawValue
     }
 }
 
+/// The way two objects are compared to spot no match, partial match or complete match
 public protocol Matchable {
     func match(with object: Self) -> Match
 }
 
-extension Matchable where Self: Equatable {
+public extension Matchable where Self: Equatable {
     func match(with object: Self) -> Match {
         return self == object ? .equal : .none
     }
