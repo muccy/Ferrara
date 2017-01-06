@@ -18,9 +18,13 @@ struct Tulip: Matchable {
     let color: Color
     let thriving: Bool
 
-    func match(with object: Tulip) -> Match {
-        if color == object.color {
-            if thriving == object.thriving {
+    func match(with object: Any) -> Match {
+        guard let tulip = object as? Tulip else {
+            return .none
+        }
+        
+        if color == tulip.color {
+            if thriving == tulip.thriving {
                 return .equal
             }
             else {
@@ -60,15 +64,19 @@ struct Tulip: Matchable, Equatable {
     let color: Color
     let thriving: Bool
     
-    static func ==(lhs: Tulip rhs: Tulip) -> Bool {
+    static func ==(lhs: Tulip, rhs: Tulip) -> Bool {
         return lhs.color == rhs.color && lhs.thriving == rhs.thriving
     }
     
-    func match(with object: Tulip) -> Match {
-        if self == object {
+    func match(with object: Any) -> Match {
+        guard let tulip = object as? Tulip else {
+            return .none
+        }
+        
+        if self == tulip {
             return .equal
         }
-        else if color == object.color {
+        else if color == tulip.color {
             return .change
         }
         else {
@@ -87,7 +95,7 @@ struct Person: Identifiable, Matchable, Equatable {
     let identifier: String // This is enough for Identifiable conformance
     let name: String
 
-    static func ==(lhs: Person rhs: Person) -> Bool {
+    static func ==(lhs: Person, rhs: Person) -> Bool {
         return lhs.identifier == rhs.identifier && lhs.name == rhs.name
     }
 }
@@ -95,6 +103,19 @@ struct Person: Identifiable, Matchable, Equatable {
 let lastYearPeople: [Person]
 let thisYearPeople: [Person]
 let diff = Diff(from: lastYearPeople, to: thisYearPeople)
+```
+
+### Diffing mixed collections
+
+You can also diff mixed collections because `Diff` takes heterogeneous collections as input parameters.
+
+```swift
+extension Int: Matchable {}
+extension String: Matchable {}
+
+let a = ["h", 3, "l", "l", 0] as [Any]
+let b = ["s", 3, "l", "l"] as [Any]
+let diff = Diff(from: a, to: b) // is legal
 ```
 
 ## Requirements
