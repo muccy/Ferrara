@@ -1,6 +1,12 @@
 language: objective-c
 osx_image: xcode8.2
-xcode_project: Framework/Ferrara.xcodeproj
-xcode_scheme: Ferrara
+script:
+    xctool 
+    -workspace Framework/Ferrara.xcodeproj
+    -scheme Ferrara 
+    -sdk iphonesimulator
+    build test 
+    CODE_SIGN_IDENTITY="" 
+    CODE_SIGNING_REQUIRED=NO
 notifications:
     email: false
