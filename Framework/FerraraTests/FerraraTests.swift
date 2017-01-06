@@ -1,7 +1,8 @@
 import XCTest
 @testable import Ferrara
 
-extension Int: Matchable {} // Use Equatable standard implementation of match(with:)
+extension Int: Matchable {}
+extension String: Matchable {}
 
 private struct Box<T: Equatable>: Identifiable, Matchable, Equatable {
     let identifier: String
@@ -24,7 +25,11 @@ class FerraraTests: XCTestCase {
             return strings.map { PrefixHolder.init($0) }
         }
         
-        func match(with object: PrefixHolder) -> Match {
+        func match(with object: Any) -> Match {
+            guard let object = object as? PrefixHolder else {
+                return .none
+            }
+            
             if (string == object.string) {
                 return .equal
             }
@@ -39,8 +44,8 @@ class FerraraTests: XCTestCase {
     }
     
     func testSameSourceAndDestination() {
-        let a = [0, 1, 2]
-        let b = [0, 1 ,2]
+        let a = [0, "1", 2] as [Any]
+        let b = [0, "1" ,2] as [Any]
         
         let diff = Diff(from: a, to: b)
         
@@ -123,8 +128,8 @@ class FerraraTests: XCTestCase {
     }
     
     func testInverseMovements() {
-        let a = [0, 1, 2]
-        let b = [2, 1, 0]
+        let a = [0, 1, "2"] as [Any]
+        let b = ["2", 1, 0] as [Any]
         
         let diff = Diff(from: a, to: b)
         
