@@ -51,7 +51,7 @@ public struct DiffMatch: Hashable, CustomDebugStringConvertible {
 }
 
 /// Diff between two collections
-public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index == DiffMatch.Index, T.IndexDistance == DiffMatch.Index
+public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDistance == DiffMatch.Index
 {
     /// Inserted indexes in destination
     public let inserted: IndexSet
@@ -106,12 +106,14 @@ public struct Diff<T: Collection> where T.Iterator.Element: Matchable, T.Index =
         self.matches = Set(matches)
     } // init
 
-    private static func match<M: Matchable>(for element: M, at index: T.Index, in destination: T) -> DiffMatch?
+    private static func match(for element: Any, at index: T.Index, in destination: T) -> DiffMatch?
     {
-        let matchableElement = AnyMatchable(element)
+        guard let element = element as? Matchable else {
+            return nil
+        }
         
         for (destinationIndex, destinationElement) in destination.enumerated() {
-            switch matchableElement.match(with: AnyMatchable(destinationElement))
+            switch element.match(with: destinationElement)
             {
             case .equal:
                 return DiffMatch(changed: false, from: index, to: destinationIndex)
