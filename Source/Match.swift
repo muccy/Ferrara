@@ -21,7 +21,7 @@ public protocol Matchable {
 }
 
 public extension Matchable where Self: Equatable {
-    func match(with object: Any) -> Match {
+    public func match(with object: Any) -> Match {
         if let object = object as? Self {
             return self == object ? .equal : .none
         }

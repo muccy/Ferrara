@@ -4,11 +4,11 @@ import Foundation
 public struct DiffMatch: Hashable, CustomDebugStringConvertible {
     public typealias Index = IndexSet.Element
     /// Matching objects are not equal, but they have changed (see Matchable protocol)
-    let changed: Bool
+    public let changed: Bool
     /// Source index
-    let from: Index
+    public let from: Index
     /// Destination index
-    let to: Index
+    public let to: Index
     
     public init(changed: Bool, from: Index, to: Index) {
         self.changed = false

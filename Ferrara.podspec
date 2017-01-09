@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Ferrara"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "Spot differences between two collections"
   s.description  = <<-DESC
                     A framework which takes two collections and calculates differences between them. 
