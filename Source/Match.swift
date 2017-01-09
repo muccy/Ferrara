@@ -29,3 +29,9 @@ public extension Matchable where Self: Equatable {
         return .none
     }
 }
+
+public extension Equatable where Self: Matchable {
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.match(with: rhs) == .equal
+    }
+}
