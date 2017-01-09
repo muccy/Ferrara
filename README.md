@@ -86,6 +86,33 @@ struct Tulip: Matchable, Equatable {
 }
 ```
 
+Also when an object conforms to `Matchable` there is a free implementation of `==`. So, if your prefer, you could write a code like this:
+
+```swift
+struct Tulip: Matchable, Equatable {
+    let color: Color
+    let thriving: Bool
+
+    func match(with object: Any) -> Match {
+        guard let tulip = object as? Tulip else {
+            return .none
+        }
+        
+        if color == tulip.color {
+            if thriving == tulip.thriving {
+                return .equal
+            }
+            else {
+                return .change // Same color, but not thriving
+            }
+        }
+        else {
+            return .none
+        }
+    }
+}
+```
+
 ### `Identifiable` protocol
 
 `Identifiable` protocol describes the common scenario when you need an object to be identifiable with a property. If you conform also to `Matchable` and `Equatable` you will have a free implementation of `match(with:)`.
