@@ -86,7 +86,8 @@ public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDista
         
         // Scan match from source to destination
         for (sourceIndex, sourceElement) in source.enumerated() {
-            if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination) {
+            if let match = Diff.match(for: sourceElement, at: sourceIndex, in: destination, using: availableDestinationIndexes)
+            {
                 availableDestinationIndexes.remove(match.to)
                 matches.append(match)
             }
@@ -106,13 +107,14 @@ public struct Diff<T: Collection> where T.Index == DiffMatch.Index, T.IndexDista
         self.matches = Set(matches)
     } // init
 
-    private static func match(for element: Any, at index: T.Index, in destination: T) -> DiffMatch?
+    private static func match(for element: Any, at index: T.Index, in destination: T, using availableDestinationIndexes: IndexSet) -> DiffMatch?
     {
         guard let element = element as? Matchable else {
             return nil
         }
         
-        for (destinationIndex, destinationElement) in destination.enumerated() {
+        for (destinationIndex, destinationElement) in destination.enumerated() where availableDestinationIndexes.contains(destinationIndex)
+        {
             switch element.match(with: destinationElement)
             {
             case .equal:
