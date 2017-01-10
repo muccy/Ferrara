@@ -270,6 +270,18 @@ class FerraraTests: XCTestCase {
         XCTAssert(diff.movements == Set([DiffMatch(1, 2)]))
         XCTAssert(diff.matches == Set([DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(4, 4), DiffMatch(changed: true, from: 0, to: 0), DiffMatch(changed: true, from: 5, to: 6)]))
     }
+    
+    func testMultipleOccurrences() {
+        let a = ["a", "d", "a", "e", "f"]
+        let b = ["a", "a", "d", "a", "e", "f"]
+        
+        let diff = Diff(from: a, to: b)
+        
+        XCTAssertEqual(diff.inserted, IndexSet(3...3)) // the highest
+        XCTAssertEqual(diff.deleted.count, 0)
+        XCTAssertEqual(diff.movements, Set([DiffMatch(1, 2)]))
+        XCTAssertEqual(diff.matches, Set([DiffMatch(0, 0), DiffMatch(1, 2), DiffMatch(2, 1), DiffMatch(3, 4), DiffMatch(4, 5)]))
+    }
 
     func testIdentifiable() {
         let a = Box(identifier: "id0", value: "A")
