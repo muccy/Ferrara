@@ -5,7 +5,7 @@ script:
     -workspace Framework/Ferrara.xcodeproj
     -scheme Ferrara 
     -sdk iphonesimulator
-    test 
+    build test 
     CODE_SIGN_IDENTITY="" 
     CODE_SIGNING_REQUIRED=NO
 notifications:
