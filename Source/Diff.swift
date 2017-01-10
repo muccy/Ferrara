@@ -11,7 +11,7 @@ public struct DiffMatch: Hashable, CustomDebugStringConvertible {
     public let to: Index
     
     public init(changed: Bool, from: Index, to: Index) {
-        self.changed = false
+        self.changed = changed
         self.from = from
         self.to = to
     }
